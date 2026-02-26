@@ -1,11 +1,11 @@
 services:
   dndtools:
-    build: ./dndtools
+    build: ../dndtools
     ports:
       - "8000:8000"
 
   jeeves:
-    build: ./jeeves
+    build: .
     ports:
       - "5000:5000"
     environment:
