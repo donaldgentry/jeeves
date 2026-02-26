@@ -1,14 +1,23 @@
 services:
   dndtools:
     build: ../dndtools
+    container_name: dndtools
     ports:
       - "8000:8000"
+    networks:
+      - dndnet
 
   jeeves:
     build: .
+    container_name: jeeves
     ports:
       - "5000:5000"
     environment:
       - DNDTOOLS_URL=http://dndtools:8000
     depends_on:
       - dndtools
+    networks:
+      - dndnet
+
+networks:
+  dndnet:
